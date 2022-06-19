@@ -3,7 +3,7 @@ const { Kafka } = require('kafkajs')
 exports.generateNewOrder = async (req, res, next) => {
 
     try{
-        // Inserir um tratamento de erros 
+        if(!req.body) return res.status(400).json({message:'A ordem não foi passada'})
         const newOrder = req.body
 
         // Order to test - Order Format
